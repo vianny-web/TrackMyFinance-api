@@ -1,0 +1,12 @@
+version: '3.8'
+
+services:
+  database:
+    image: postgres:16.2
+    container_name: postgresql
+    environment:
+      POSTGRES_USER: vianny
+      POSTGRES_PASSWORD: password
+      POSTGRES_DB: taskMyFinance_db
+    ports:
+      - "5432:5432"
