@@ -4,16 +4,13 @@ CREATE TABLE IF NOT EXISTS "user" (
     password VARCHAR(255) NOT NULL
 );
 
-CREATE TYPE category_type AS ENUM ('SUPERMARKET', 'TRANSPORT', 'HOUSING', 'OTHERS');
-CREATE TYPE transaction_type AS ENUM ('EXPENDITURE', 'INCOME');
-
 CREATE TABLE IF NOT EXISTS transaction (
     id SERIAL PRIMARY KEY,
     user_id INTEGER REFERENCES "user"(id) ON DELETE CASCADE,
-    transaction transaction_type NOT NULL,
-    amount DECIMAL(10, 2),
-    datatime timestamptz,
-    category category_type NOT NULL
+    transaction text NOT NULL,
+    amount DECIMAL(10, 2) NOT NULL,
+    datatime timestamptz NOT NULL,
+    category text NOT NULL
 );
 
 INSERT INTO "user" (login, password)

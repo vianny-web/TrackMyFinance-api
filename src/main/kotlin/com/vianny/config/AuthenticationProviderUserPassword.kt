@@ -13,7 +13,7 @@ import jakarta.inject.Singleton
 class AuthenticationProviderUserPassword<B> : HttpRequestAuthenticationProvider<B> {
 
     @Inject
-    lateinit var userRepository: UserRepository
+    private lateinit var userRepository: UserRepository
 
     override fun authenticate(
         httpRequest: HttpRequest<B>?,

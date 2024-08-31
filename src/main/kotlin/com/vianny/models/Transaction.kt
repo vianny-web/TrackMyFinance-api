@@ -17,7 +17,7 @@ data class Transaction(
     val user: User?,
 
     @Enumerated(EnumType.STRING)
-    @Column(name = "transaction_type", nullable = false)
+    @Column(name = "transaction", nullable = false)
     val transactionType: TransactionType?,
 
     @Column(nullable = false)
@@ -27,8 +27,14 @@ data class Transaction(
     val datetime: OffsetDateTime?,
 
     @Enumerated(EnumType.STRING)
-    @Column(name = "category_type", nullable = false)
+    @Column(name = "category", nullable = false)
     val categoryType: CategoryType?
 ) {
-    constructor() : this(null, null, null, null, null, null)
+    constructor() : this(null, null, null, null, OffsetDateTime.now(), null)
+    constructor(
+        user: User,
+        transactionType: TransactionType,
+        amount: BigDecimal,
+        categoryType: CategoryType
+    ) : this(null, user, transactionType, amount, OffsetDateTime.now(), categoryType)
 }
