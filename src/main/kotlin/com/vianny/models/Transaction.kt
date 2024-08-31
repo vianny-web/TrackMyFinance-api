@@ -2,11 +2,13 @@ package com.vianny.models
 
 import com.vianny.enums.CategoryType
 import com.vianny.enums.TransactionType
+import io.micronaut.serde.annotation.Serdeable
 import jakarta.persistence.*
 import java.math.BigDecimal
 import java.time.OffsetDateTime
 
 @Entity
+@Serdeable
 data class Transaction(
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
