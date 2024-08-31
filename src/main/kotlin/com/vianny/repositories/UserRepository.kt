@@ -10,5 +10,5 @@ import java.util.*
 @JdbcRepository(dialect = Dialect.POSTGRES)
 interface UserRepository : CrudRepository<User, Long> {
     @Executable
-    override fun findById(id: Long?): Optional<User>?
+    fun findByLogin(username: String) : Optional<User>
 }

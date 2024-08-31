@@ -2,6 +2,7 @@ package com.vianny.models
 
 import jakarta.persistence.*
 
+@Table(name = "user")
 @Entity
 data class User(
     @Id
@@ -9,7 +10,7 @@ data class User(
     val id: Long?,
 
     @Column(unique = true, nullable = false)
-    val username: String,
+    val login: String,
 
     @Column(nullable = false)
     val password: String,
