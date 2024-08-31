@@ -1,4 +1,4 @@
-CREATE TABLE "user" (
+CREATE TABLE IF NOT EXISTS "user" (
     id SERIAL PRIMARY KEY,
     login VARCHAR(255) NOT NULL UNIQUE,
     password VARCHAR(255) NOT NULL
@@ -7,7 +7,7 @@ CREATE TABLE "user" (
 CREATE TYPE category_type AS ENUM ('SUPERMARKET', 'TRANSPORT', 'HOUSING', 'OTHERS');
 CREATE TYPE transaction_type AS ENUM ('EXPENDITURE', 'INCOME');
 
-CREATE TABLE transaction (
+CREATE TABLE IF NOT EXISTS transaction (
     id SERIAL PRIMARY KEY,
     user_id INTEGER REFERENCES "user"(id) ON DELETE CASCADE,
     transaction transaction_type NOT NULL,
