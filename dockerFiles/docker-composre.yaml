@@ -1,12 +1,31 @@
 version: '3.8'
 
 services:
-  database:
+  postgres:
     image: postgres:16.2
     container_name: postgresql
     environment:
       POSTGRES_USER: vianny
       POSTGRES_PASSWORD: password
       POSTGRES_DB: taskMyFinance_db
+    volumes:
+      - ./TrackMyFinanceDB.sql:/docker-entrypoint-initdb.d/TrackMyFinanceDB.sql
     ports:
       - "5432:5432"
+    networks:
+      - trackMyFinance_bridgeNetwork
+
+  kotlin-app:
+    build: ./
+    container_name: 'TrackMyFinance-api'
+    ports:
+      - "8080:8080"
+    environment:
+      DB_HOST: postgresql
+    networks:
+      - trackMyFinance_bridgeNetwork
+    restart: on-failure
+
+networks:
+  trackMyFinance_bridgeNetwork:
+    driver: bridge
