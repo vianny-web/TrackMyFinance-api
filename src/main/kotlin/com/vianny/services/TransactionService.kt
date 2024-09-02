@@ -1,6 +1,6 @@
 package com.vianny.services
 
-import com.vianny.dto.TransactionDTO
+import com.vianny.dto.request.TransactionDTO
 import com.vianny.enums.CategoryType
 import com.vianny.models.Transaction
 import com.vianny.models.User

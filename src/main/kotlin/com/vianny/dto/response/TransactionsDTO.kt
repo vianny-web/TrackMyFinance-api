@@ -1,4 +1,4 @@
-package com.vianny.dto
+package com.vianny.dto.response
 
 import com.vianny.enums.CategoryType
 import com.vianny.enums.TransactionType

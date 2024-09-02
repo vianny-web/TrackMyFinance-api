@@ -1,12 +1,9 @@
 package com.vianny.controllers
 
 import com.vianny.dto.response.MainResponseDTO
-import com.vianny.dto.TransactionDTO
-import com.vianny.dto.TransactionsDTO
+import com.vianny.dto.request.TransactionDTO
 import com.vianny.enums.CategoryType
-import com.vianny.models.Transaction
 import com.vianny.services.TransactionService
-import io.micronaut.data.model.Page
 import io.micronaut.http.HttpResponse
 import io.micronaut.http.HttpStatus
 import io.micronaut.http.annotation.*
